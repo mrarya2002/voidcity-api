@@ -7,11 +7,15 @@ const MovieRouter = require("./routes/movies")
 const app = express();
 const port = process.env.PORT || 3000
 
-app.use(cors)
+app.use(cors())
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  res.send("Welcome To Virtual World")
+})
 
 app.use("/",MovieRouter)
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
